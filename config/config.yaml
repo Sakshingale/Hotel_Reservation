@@ -1,0 +1,5 @@
+data_ingestion:
+  bucket_name : "my_bucket19"
+  bucket_file_name : "Hotel_Reservations.csv"
+  train_ratio : 0.8
+

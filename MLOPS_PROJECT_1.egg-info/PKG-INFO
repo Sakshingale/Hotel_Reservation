@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: MLOPS-PROJECT-1
+Version: 0.1
+Author: Sakshi
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: google-cloud-storage
+Requires-Dist: scikit-learn
+Requires-Dist: pyyaml
+Dynamic: author
+Dynamic: requires-dist

@@ -1,0 +1,9 @@
+2026-02-04 00:11:44,678 - INFO - Succesfully read the YAML file
+2026-02-04 00:11:44,678 - INFO - Data Ingestion started with my_bucket19 and file is  Hotel_Reservations.csv
+2026-02-04 00:11:44,678 - INFO - Starting data ingestion process
+2026-02-04 00:11:49,239 - INFO - CSV file is sucesfully downloaded to artifacts/raw\raw.csv
+2026-02-04 00:11:49,239 - INFO - Starting the splitting process
+2026-02-04 00:11:49,630 - INFO - Train data saved to artifacts/raw\train.csv
+2026-02-04 00:11:49,630 - INFO - Test data saved to artifacts/raw\test.csv
+2026-02-04 00:11:49,638 - INFO - Data ingestion completed sucesfully
+2026-02-04 00:11:49,650 - INFO - Data ingestion completed
