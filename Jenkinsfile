@@ -37,25 +37,27 @@ pipeline {
 
         stage('Build & Push Docker Image to GCR') {
             steps {
-                withCredentials([file(credentialsId: 'gcp-key', variable: 'GCP_KEY')]) {
-                    sh '''
-                      docker run --rm \
-                        -v /var/run/docker.sock:/var/run/docker.sock \
-                        -v $PWD:/workspace \
-                        -v $GCP_KEY:/key.json \
-                        -w /workspace \
-                        -e GOOGLE_APPLICATION_CREDENTIALS=/key.json \
-                        google/cloud-sdk:slim \
-                        sh -c "
-                          gcloud auth activate-service-account --key-file=/key.json &&
-                          gcloud config set project ${GCP_PROJECT} &&
-                          gcloud auth configure-docker --quiet &&
-                          docker build -t gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:${TAG} . &&
-                          docker push gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:${TAG}
-                        "
-                    '''
-                }
-            }
+            withCredentials([file(credentialsId: 'gcp-key', variable: 'GCP_KEY')]) {
+                sh '''
+                docker run --rm \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                -v $(dirname ${GCP_KEY}):/keys \
+                -v $(pwd):/workspace \
+                -w /workspace \
+                -e GOOGLE_APPLICATION_CREDENTIALS=/keys/$(basename ${GCP_KEY}) \
+                google/cloud-sdk:slim sh -c "
+                    gcloud auth activate-service-account --key-file=/keys/$(basename ${GCP_KEY}) &&
+                    gcloud config set project gen-lang-client-0208573681 &&
+                    gcloud auth configure-docker --quiet &&
+                    docker build -t gcr.io/gen-lang-client-0208573681/ml-project:latest . &&
+                    docker push gcr.io/gen-lang-client-0208573681/ml-project:latest
+                "
+                '''
+            }    
         }
     }
 }
+}
+
+    
+
