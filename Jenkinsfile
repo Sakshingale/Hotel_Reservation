@@ -16,13 +16,9 @@ pipeline{
             }
         }
         
-    }
-}
-
-
         stage('Setting up our Virtual Environment and Installing dependancies'){
-            steps{
-                script{
+                steps{
+                    script{
                     echo 'Setting up our Virtual Environment and Installing dependancies............'
                     sh '''
                     python -m venv ${VENV_DIR}
@@ -33,3 +29,5 @@ pipeline{
                 }
             }
         }
+    }
+}
