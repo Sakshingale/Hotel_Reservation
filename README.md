@@ -1,4 +1,4 @@
-# 🏨 Hotel Reservation – End-to-End MLOps Pipeline
+# 🏨 Hotel Reservation Cancellation Prediction – End-to-End MLOps Pipeline
 
 An **end-to-end MLOps pipeline** for a Hotel Reservation prediction system demonstrating how machine learning workflows can be **automated, containerized, and deployed** using modern **DevOps and cloud-native tools**.
 
